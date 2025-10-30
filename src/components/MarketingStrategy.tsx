@@ -34,23 +34,79 @@ const MarketingStrategy = () => {
       strategies: [
         {
           title: "Retail Partnerships",
-          description: "Croma, Reliance Digital placements",
-          impact: "Mainstream visibility",
+          description: "National electronics retail chain partnerships",
+          impact: "5M+ monthly footfall reach",
+          details: [
+            "Croma: 450+ stores across 100+ cities",
+            "Reliance Digital: 500+ outlets nationwide",
+            "In-store demo units & trained staff",
+            "Co-branded marketing materials",
+            "Weekend tournament events in stores",
+            "Target: 15,000 units/month through retail"
+          ],
+          metrics: {
+            investment: "₹2.5 Cr",
+            expectedReach: "5M customers",
+            conversionRate: "8%",
+            roi: "3.2x"
+          }
         },
         {
           title: "College Campaigns",
-          description: "Campus ambassadors & tournaments",
-          impact: "Tap into youth market",
+          description: "Direct engagement with 18-24 age demographic",
+          impact: "100+ campuses in 12 months",
+          details: [
+            "Campus Ambassador program: 500 students",
+            "Inter-college esports tournaments",
+            "Technical workshops & gaming sessions",
+            "Student discount program (20% off)",
+            "Referral rewards: ₹100/conversion",
+            "Target cities: Delhi, Mumbai, Bangalore, Pune, Hyderabad, Chennai"
+          ],
+          metrics: {
+            investment: "₹1.8 Cr",
+            expectedReach: "2M students",
+            conversionRate: "12%",
+            roi: "4.5x"
+          }
         },
         {
           title: "Gaming Cafe Network",
-          description: "Free products to cafes in Tier 3-4 cities",
-          impact: "Grassroots penetration",
+          description: "Grassroots penetration in underserved markets",
+          impact: "500 cafes in Tier 3-4 cities",
+          details: [
+            "Free hardware kits to 500+ gaming cafes",
+            "Monthly local tournaments with prizes",
+            "Co-branded signage & marketing",
+            "Exclusive cafe owner benefits",
+            "Target: 50 tournaments/month across network",
+            "Revenue share model post-trial period"
+          ],
+          metrics: {
+            investment: "₹1.2 Cr",
+            expectedReach: "2M cafe visitors",
+            conversionRate: "15%",
+            roi: "5.2x"
+          }
         },
         {
           title: "Performance Marketing",
-          description: "Social media ads & app store optimization",
-          impact: "Scalable user acquisition",
+          description: "Multi-channel digital acquisition at scale",
+          impact: "300K+ app installs/month",
+          details: [
+            "Meta/Instagram: Gaming communities & creators",
+            "YouTube: Pre-roll & gaming channel partnerships",
+            "Google: Search & Display targeting gamers",
+            "App Store Optimization (ASO) for top rankings",
+            "Retargeting campaigns for cart abandonment",
+            "A/B testing across 20+ creative variants"
+          ],
+          metrics: {
+            investment: "₹3.2 Cr",
+            expectedReach: "15M impressions/month",
+            conversionRate: "6%",
+            roi: "3.8x"
+          }
         },
       ],
     },
@@ -156,18 +212,55 @@ const MarketingStrategy = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 {phase.strategies.map((strategy, strategyIndex) => (
                   <div
                     key={strategyIndex}
-                    className="p-6 rounded-xl bg-background/50 backdrop-blur border border-border"
+                    className="p-6 rounded-xl bg-background/50 backdrop-blur border border-border hover:border-primary/50 transition-all"
                   >
                     <h4 className="text-xl font-bold mb-3">{strategy.title}</h4>
                     <p className="text-muted-foreground mb-3">{strategy.description}</p>
-                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${phase.color}/20 text-${phase.color} text-sm font-semibold`}>
+                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${phase.color}/20 text-${phase.color} text-sm font-semibold mb-4`}>
                       <TrendingUp className="w-4 h-4" />
                       {strategy.impact}
                     </div>
+                    
+                    {strategy.details && (
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <p className="text-xs font-semibold text-primary mb-2">Key Initiatives:</p>
+                        <ul className="space-y-1.5">
+                          {strategy.details.map((detail, idx) => (
+                            <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <span className="text-primary mt-1">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    
+                    {strategy.metrics && (
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <p className="text-xs text-muted-foreground mb-1">Investment</p>
+                            <p className="text-sm font-bold text-primary">{strategy.metrics.investment}</p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-muted-foreground mb-1">Expected Reach</p>
+                            <p className="text-sm font-bold text-secondary">{strategy.metrics.expectedReach}</p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-muted-foreground mb-1">Conversion</p>
+                            <p className="text-sm font-bold text-accent">{strategy.metrics.conversionRate}</p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-muted-foreground mb-1">Expected ROI</p>
+                            <p className="text-sm font-bold text-primary">{strategy.metrics.roi}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
